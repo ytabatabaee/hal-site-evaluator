@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hal-site-evaluator"
+version = "0.1.0"
+description = "Run-length evaluation of predicted synteny blocks using HAL ancestral coordinates"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{name = "Yasamin Tabatabaee"}]
+keywords = ["comparative genomics", "HAL", "synteny", "genome rearrangement"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/ytabatabaee/hal-site-evaluator"
+Issues = "https://github.com/ytabatabaee/hal-site-evaluator/issues"
+
+[project.scripts]
+hal-site-eval = "hal_site_evaluator:main"
+
+[tool.setuptools]
+py-modules = ["hal_site_evaluator"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
