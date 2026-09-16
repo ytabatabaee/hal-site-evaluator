@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "hal-site-evaluator"
-version = "0.1.0"
-description = "Run-length evaluation of predicted synteny blocks using HAL ancestral coordinates"
+version = "0.2.0"
+description = "Run-length evaluation and matching of synteny block systems using HAL ancestral coordinates"
 readme = "README.md"
 requires-python = ">=3.9"
 license = "MIT"
