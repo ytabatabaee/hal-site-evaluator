@@ -878,6 +878,30 @@ def parser() -> argparse.ArgumentParser:
     mt.add_argument("--min-supporting-species", type=int, default=0)
     mt.add_argument("--consistency-threshold", type=float, default=0.5)
     sub.add_parser("self-test", help="test interval scoring and matching without HAL")
+    ev = sub.add_parser(
+        "eval",
+        help="end-to-end: map both block sets to the ancestor, then compare them",
+    )
+    ev.add_argument("--left", type=Path, required=True, metavar="TSV",
+                    help="left block occurrence table")
+    ev.add_argument("--right", type=Path, required=True, metavar="TSV",
+                    help="right block occurrence table")
+    ev.add_argument("--hal", type=Path, required=True,
+                    help="Cactus HAL alignment file")
+    ev.add_argument("--ancestor", required=True,
+                    help="ancestral genome name in the HAL file")
+    ev.add_argument("--output-prefix", type=Path, required=True,
+                    help="prefix for all output files")
+    ev.add_argument("--hal-liftover", default="halLiftover",
+                    help="halLiftover executable (default: halLiftover)")
+    ev.add_argument("--keep-mapped", action="store_true",
+                    help="write intermediate mapped TSVs alongside the output prefix")
+    ev.add_argument("--min-intersection-bp", type=int, default=1)
+    ev.add_argument("--min-jaccard", type=float, default=0.0)
+    ev.add_argument("--min-left-coverage", type=float, default=0.0)
+    ev.add_argument("--min-right-coverage", type=float, default=0.0)
+    ev.add_argument("--min-supporting-species", type=int, default=0)
+    ev.add_argument("--consistency-threshold", type=float, default=0.5)
     return p
 
 
@@ -900,6 +924,34 @@ def main() -> int:
                 args.left_mapped, args.right_mapped, args.output_prefix,
                 thresholds, args.consistency_threshold,
             ), indent=2, sort_keys=True))
+        elif args.command == "eval":
+            thresholds = {
+                "min_intersection_bp": args.min_intersection_bp,
+                "min_jaccard": args.min_jaccard,
+                "min_left_coverage": args.min_left_coverage,
+                "min_right_coverage": args.min_right_coverage,
+                "min_supporting_species": args.min_supporting_species,
+            }
+            prefix = args.output_prefix
+            if args.keep_mapped:
+                prefix.parent.mkdir(parents=True, exist_ok=True)
+                left_mapped = prefix.parent / (prefix.name + ".left_mapped.tsv")
+                right_mapped = prefix.parent / (prefix.name + ".right_mapped.tsv")
+                map_to_ancestor(args.left, args.hal, args.ancestor, left_mapped, args.hal_liftover)
+                map_to_ancestor(args.right, args.hal, args.ancestor, right_mapped, args.hal_liftover)
+                print(json.dumps(match_mapped(
+                    left_mapped, right_mapped, prefix, thresholds, args.consistency_threshold,
+                ), indent=2, sort_keys=True))
+            else:
+                with tempfile.TemporaryDirectory(prefix="hal-site-eval-") as tmp:
+                    tmpdir = Path(tmp)
+                    left_mapped = tmpdir / "left_mapped.tsv"
+                    right_mapped = tmpdir / "right_mapped.tsv"
+                    map_to_ancestor(args.left, args.hal, args.ancestor, left_mapped, args.hal_liftover)
+                    map_to_ancestor(args.right, args.hal, args.ancestor, right_mapped, args.hal_liftover)
+                    print(json.dumps(match_mapped(
+                        left_mapped, right_mapped, prefix, thresholds, args.consistency_threshold,
+                    ), indent=2, sort_keys=True))
         elif args.command == "self-test":
             self_test()
     except Exception as exc:
