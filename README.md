@@ -74,6 +74,19 @@ block_id    species    chrom    start    end    strand
 
 Coordinates are **zero-based, half-open**. Three optional columns can be appended: `occurrence_id`, `copy_id`, `status`.
 
+Example:
+
+```
+block_id	species	chrom	start	end	strand
+L1	human	chr1	1000	2000	+
+L1	mouse	chr1	1100	2100	+
+L2	human	chr3	5000	7000	-
+L2	mouse	chr3	4800	6800	-
+L3	human	chr5	100	500	+
+```
+
+Each row is one occurrence of the block in one species. See [`example/`](example/) for a complete worked example.
+
 ## Output Files
 
 `map` produces a mapped TSV with an added `anc_intervals` column and a per-occurrence status (`unique`, `duplicated`, `ambiguous`, or `unmapped`).
@@ -88,12 +101,6 @@ Coordinates are **zero-based, half-open**. Three optional columns can be appende
 | `PREFIX.left_family_metrics.tsv` | Per-family metrics for the left block set |
 | `PREFIX.right_family_metrics.tsv` | Per-family metrics for the right block set |
 | `PREFIX.summary.json` | Run parameters and aggregate counts |
-
-## Citation
-
-If you use HAL Site Evaluator in your work, please cite:
-
-> Tabatabaee Y. et al. *HAL Site Evaluator* (2024). https://github.com/ytabatabaee/hal-site-evaluator
 
 ## License
 

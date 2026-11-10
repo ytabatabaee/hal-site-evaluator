@@ -1,0 +1,5 @@
+relationship	left_block_ids	right_block_ids	n_left	n_right	n_edges	intersection_bp
+one_to_one	L1	R1	1	1	1	2000
+split	L2	R2,R3	1	2	2	4000
+left_only	L3		1	0	0	0
+right_only		R4	0	1	0	0

@@ -1,0 +1,4 @@
+block_id	n_occurrences	n_species	unique_occurrences	duplicated_occurrences	ambiguous_occurrences	unmapped_occurrences	fraction_unique	fraction_duplicated	fraction_ambiguous	fraction_unmapped	ancestral_chromosomes	consensus_intervals	consensus_bp	mean_occurrence_precision	mean_occurrence_recall	mean_occurrence_jaccard	family_homology_purity	orientation_consistency	fraction_passing_consistency
+L1	2	2	2	0	0	0	1.0	0.0	0.0	0.0	Anc1	Anc1:0-1000,Anc1:2000-3000	2000	1.000000	0.500000	0.500000	1.000000	1.000000	1.000000
+L2	2	2	2	0	0	0	1.0	0.0	0.0	0.0	Anc3	Anc3:0-2000,Anc3:4000-6000	4000	1.000000	0.500000	0.500000	1.000000	1.000000	1.000000
+L3	2	2	2	0	0	0	1.0	0.0	0.0	0.0	Anc5	Anc5:0-400,Anc5:2000-2400	800	1.000000	0.500000	0.500000	1.000000	1.000000	1.000000

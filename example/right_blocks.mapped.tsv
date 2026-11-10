@@ -1,0 +1,9 @@
+block_id	occurrence_id	species	ancestor	anc_chrom	anc_start	anc_end	strand	copy_id	mapping_status	source_status	source_chrom	source_start	source_end	source_strand	source_length	mapped_bp	unique_bp	duplicated_bp	ambiguous_bp	unmapped_bp
+R1	R1:human	human	Ancestor	Anc1	0	1000	+	1	unique	unspecified	chr1	1000	2000	+	1000	1000	1000	0	0	0
+R1	R1:mouse	mouse	Ancestor	Anc1	2000	3000	+	1	unique	unspecified	chr1	1100	2100	+	1000	1000	1000	0	0	0
+R2	R2:human	human	Ancestor	Anc3	0	1000	-	1	unique	unspecified	chr3	5000	6000	-	1000	1000	1000	0	0	0
+R2	R2:mouse	mouse	Ancestor	Anc3	4000	5000	-	1	unique	unspecified	chr3	4800	5800	-	1000	1000	1000	0	0	0
+R3	R3:human	human	Ancestor	Anc3	1000	2000	-	1	unique	unspecified	chr3	6000	7000	-	1000	1000	1000	0	0	0
+R3	R3:mouse	mouse	Ancestor	Anc3	5000	6000	-	1	unique	unspecified	chr3	5800	6800	-	1000	1000	1000	0	0	0
+R4	R4:human	human	Ancestor	Anc6	0	400	+	1	unique	unspecified	chr6	200	600	+	400	400	400	0	0	0
+R4	R4:mouse	mouse	Ancestor	Anc6	2000	2400	+	1	unique	unspecified	chr6	250	650	+	400	400	400	0	0	0

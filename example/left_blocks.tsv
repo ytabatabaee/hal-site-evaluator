@@ -1,0 +1,7 @@
+block_id	species	chrom	start	end	strand
+L1	human	chr1	1000	2000	+
+L1	mouse	chr1	1100	2100	+
+L2	human	chr3	5000	7000	-
+L2	mouse	chr3	4800	6800	-
+L3	human	chr5	100	500	+
+L3	mouse	chr5	120	520	+

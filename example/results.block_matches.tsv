@@ -1,0 +1,3 @@
+left_block_id	right_block_id	left_bp	right_bp	intersection_bp	union_bp	jaccard	left_coverage	right_coverage	orientation_agreement	supporting_species	fraction_unique_support	fraction_duplicated_or_ambiguous
+L1	R1	2000	2000	2000	2000	1.000000	1.000000	1.000000	1.000000	2	1.000000	0.000000
+L2	R2	4000	2000	2000	4000	0.500000	0.500000	1.000000	1.000000	2	1.000000	0.000000

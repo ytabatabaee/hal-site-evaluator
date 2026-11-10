@@ -1,0 +1,26 @@
+{
+  "ancestor": "Ancestor",
+  "consistency_threshold": 0.5,
+  "counts": {
+    "left_families": 3,
+    "one_to_one_matches": 2,
+    "overlap_edges": 3,
+    "relationships": {
+      "left_only": 1,
+      "one_to_one": 1,
+      "right_only": 1,
+      "split": 1
+    },
+    "right_families": 4
+  },
+  "left_mapped": "left_blocks.mapped.tsv",
+  "package_version": "0.2.0",
+  "right_mapped": "right_blocks.mapped.tsv",
+  "thresholds": {
+    "min_intersection_bp": 1,
+    "min_jaccard": 0.0,
+    "min_left_coverage": 0.0,
+    "min_right_coverage": 0.0,
+    "min_supporting_species": 0
+  }
+}
